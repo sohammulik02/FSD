@@ -1,0 +1,95 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.8;
+}
+
+/* Main Container */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+.site-name {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: #2c3e50;
+}
+
+/* Blog Title */
+.blog-title {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+/* Author */
+.author {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* Main Image */
+.main-image {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+/* Section Headings */
+h3 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 18px;
+    font-size: 17px;
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.image-gallery img {
+    width: 100%;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #666;
+}
+
