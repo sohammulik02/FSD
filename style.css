@@ -505,7 +505,6 @@ address {
     font-weight: 800;
     color: var(--white);
     margin-bottom: var(--spacing-md);
-    text-wrap: balance;
     animation: fadeInDown 1s ease 0.4s both;
     letter-spacing: -0.02em;
     line-height: 1.2;
@@ -548,6 +547,105 @@ address {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* ========== ABOUT US SECTION ========== */
+.about-section {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--white);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+    border: 2px dashed var(--gray-300);
+    transition: all var(--transition-base);
+}
+
+.image-placeholder:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    color: var(--white);
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.image-placeholder svg {
+    margin-bottom: var(--spacing-md);
+    opacity: 0.7;
+}
+
+.image-placeholder p {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.about-text {
+    padding-right: var(--spacing-lg);
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-description:last-of-type {
+    margin-bottom: var(--spacing-xl);
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--off-white);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--secondary);
+    transition: all var(--transition-base);
+}
+
+.highlight-item:hover {
+    background-color: var(--gray-50);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.highlight-icon {
+    color: var(--secondary);
+    flex-shrink: 0;
+}
+
+.highlight-item span {
+    font-weight: 600;
+    color: var(--gray-700);
 }
 
 /* ========== FAQ SECTION ========== */
