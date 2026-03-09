@@ -13,12 +13,14 @@ Kusumtai Thakare Bahuudhesh Sanstha Ghatanji is committed to nurturing children 
 ## ✨ Features
 
 ### 🏠 Homepage
+
 - **Hero Section**: Eye-catching introduction with animated elements and call-to-action buttons
 - **About Us Section**: Detailed information about the school with placeholder for school photo and key highlights
 - **FAQ Section**: Comprehensive answers to common questions about admissions and facilities
 - **Responsive Navigation**: Mobile-friendly header with hamburger menu
 
 ### 🎨 Design & Styling
+
 - **Modern Theme**: Vibrant teal (#28B5A0) and coral (#FF7B54) color scheme
 - **Custom CSS Variables**: Consistent theming with reusable design tokens
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
@@ -26,6 +28,7 @@ Kusumtai Thakare Bahuudhesh Sanstha Ghatanji is committed to nurturing children 
 - **Accessibility**: Semantic HTML and proper contrast ratios
 
 ### 📱 Technical Features
+
 - **Mobile-First Approach**: Responsive grid layouts and flexible typography
 - **Cross-Browser Compatibility**: Tested and optimized for modern browsers
 - **Performance Optimized**: Efficient CSS and minimal JavaScript
@@ -40,7 +43,7 @@ Kusumtai Thakare Bahuudhesh Sanstha Ghatanji is committed to nurturing children 
 
 ## 📁 Project Structure
 
-```
+```text
 FSD/
 ├── index.html          # Main homepage
 ├── style.css           # Main stylesheet
@@ -55,15 +58,18 @@ FSD/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Any modern web browser (Chrome, Firefox, Safari, Edge)
 - No server required - runs entirely in the browser
 
 ### Viewing the Website
+
 1. Clone or download this repository
 2. Open `index.html` in your web browser
 3. Navigate through the sections using the menu
 
 ### Development
+
 - Edit HTML files for content changes
 - Modify `style.css` for styling updates
 - Update `script.js` for interactive features
@@ -71,12 +77,13 @@ FSD/
 ## 📞 Contact Information
 
 **Location**: Ghatanji, Yavatmal, Maharashtra  
-**Email**: grishmathakare1@gmail.com  
+**Email**: <grishmathakare1@gmail.com>  
 **Phone**: +91 XXXXX XXXXX  
 
 ## 🤝 Contributing
 
 This project welcomes contributions. Please feel free to:
+
 - Report bugs or issues
 - Suggest new features
 - Submit pull requests for improvements
@@ -94,4 +101,4 @@ This project is created for educational and charitable purposes. All rights rese
 
 ---
 
-*Built with ❤️ for children with special needs*
+## Built with ❤️ for children with special needs
