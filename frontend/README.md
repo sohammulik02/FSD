@@ -16,7 +16,7 @@ Kusumtai Thakare Bahuudhesh Sanstha Ghatanji is committed to nurturing children 
 
 - **Hero Section**: Eye-catching introduction with animated elements and call-to-action buttons
 - **About Us Section**: Detailed information about the school with placeholder for school photo and key highlights
-- **FAQ Section**: Comprehensive answers to common questions about admissions and facilities
+- **Enquiry Section**: Two-column "Why choose us" and enquiry form layout for admissions leads
 - **Responsive Navigation**: Mobile-friendly header with hamburger menu
 
 ### 🎨 Design & Styling
@@ -92,6 +92,7 @@ This project welcomes contributions. Please feel free to:
 
 - ✅ **Fixed CSS Compatibility**: Removed unsupported `text-wrap: balance` property for better browser support
 - ✅ **Added About Us Section**: Comprehensive school information with interactive highlights
+- ✅ **Replaced FAQ with Enquiry Section**: Added the new two-column enquiry pattern and form UI
 - ✅ **Enhanced Responsive Design**: Improved mobile navigation and layout
 - ✅ **Optimized Performance**: Streamlined CSS and removed unnecessary code
 

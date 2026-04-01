@@ -1,0 +1,13 @@
+node_modules/
+
+# Backend and frontend build/runtime artifacts
+backend/node_modules/
+backend/.env
+backend/.env.*
+backend/*.db
+
+# Common local/editor files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
