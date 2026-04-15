@@ -485,77 +485,26 @@ address {
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #1a1f4d 0%, #2d2660 50%, #1e1a3f 100%);
+    /* Photo background with blur */
+    background-image: url('../Images/landing page image.jpeg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    filter: blur(3px) brightness(0.55);
+    transform: scale(1.05); /* prevent blur edges */
 }
 
-.hero-pattern {
-    position: absolute;
-    inset: 0;
-    opacity: 1;
-}
-
-.hero-pattern::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(135deg, #28B5A0 0%, #40D4BA 100%);
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    animation: float1 6s ease-in-out infinite;
-}
-
-.hero-pattern::after {
-    content: '';
-    position: absolute;
-    top: 60%;
-    right: 10%;
-    width: 180px;
-    height: 180px;
-    background: linear-gradient(135deg, #40D4BA 0%, #28B5A0 100%);
-    clip-path: polygon(50% 0%, 100% 30%, 100% 70%, 50% 100%, 0% 70%, 0% 30%);
-    animation: float2 8s ease-in-out infinite;
-}
-
-@keyframes float1 {
-    0%, 100% { transform: translateY(0px) translateX(0px); }
-    50% { transform: translateY(-20px) translateX(10px); }
-}
-
-@keyframes float2 {
-    0%, 100% { transform: translateY(0px) translateX(0px); }
-    50% { transform: translateY(20px) translateX(-10px); }
-}
-
+/* Dark overlay for text readability */
 .hero-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.15) 100%);
-}
-
-.hero-gradient::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 15%;
-    width: 250px;
-    height: 250px;
-    background: linear-gradient(135deg, #FF9978 0%, #FF7B54 100%);
-    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 85%);
-    opacity: 0.9;
-}
-
-.hero-gradient::after {
-    content: '';
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
-    clip-path: circle(50%);
-    opacity: 0.8;
+    background: linear-gradient(
+        160deg,
+        rgba(10, 15, 50, 0.55) 0%,
+        rgba(20, 10, 40, 0.50) 50%,
+        rgba(10, 25, 45, 0.60) 100%
+    );
+    z-index: 0;
 }
 
 .hero-content {
@@ -655,40 +604,47 @@ address {
 
 .about-image {
     position: relative;
-}
-
-.image-placeholder {
-    width: 100%;
-    aspect-ratio: 4/3;
-    background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+    padding: 16px;
     border-radius: var(--radius-xl);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--gray-400);
-    border: 2px dashed var(--gray-300);
-    transition: all var(--transition-base);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    box-shadow: 0 4px 20px rgba(40, 181, 160, 0.25);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.image-placeholder:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-    color: var(--white);
-    border-color: var(--primary);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+.about-image::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--secondary) 100%);
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: -1;
+    filter: blur(30px);
 }
 
-.image-placeholder svg {
-    margin-bottom: var(--spacing-md);
-    opacity: 0.7;
+.about-real-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: calc(var(--radius-xl) - 8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    display: block;
+    background: var(--white);
 }
 
-.image-placeholder p {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin: 0;
+.about-real-img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-image:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(40, 181, 160, 0.35);
 }
 
 .about-text {
@@ -737,6 +693,129 @@ address {
 .highlight-item span {
     font-weight: 600;
     color: var(--gray-700);
+}
+
+/* ========== STUDENT LIFE SECTION ========== */
+.student-life-section {
+    padding: var(--spacing-3xl) 0;
+    background:
+        radial-gradient(circle at top left, rgba(40, 181, 160, 0.13), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(255, 123, 84, 0.14), transparent 30%),
+        linear-gradient(135deg, #fff6ed 0%, #ffffff 62%, #fffaf4 100%);
+}
+
+.student-life-header {
+    max-width: 760px;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.student-life-description {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    line-height: 1.75;
+}
+
+.student-life-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.student-life-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+    padding: 1.45rem;
+    border-radius: 1.35rem;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(40, 181, 160, 0.12);
+    box-shadow: 0 14px 34px rgba(31, 29, 27, 0.08);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.student-life-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+}
+
+.student-life-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, rgba(40, 181, 160, 0.35), rgba(255, 123, 84, 0.35));
+}
+
+.student-life-card-accent {
+    border-top: 6px solid #28b5a0;
+}
+
+.student-life-card-primary {
+    border-top: 6px solid #ffb347;
+}
+
+.student-life-card-secondary {
+    border-top: 6px solid #ff7b54;
+}
+
+.student-life-icon {
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    margin-bottom: 0.95rem;
+    box-shadow: 0 10px 22px rgba(31, 29, 27, 0.08);
+}
+
+.student-life-card-accent .student-life-icon {
+    background: linear-gradient(135deg, #28b5a0 0%, #40d4ba 100%);
+}
+
+.student-life-card-primary .student-life-icon {
+    background: linear-gradient(135deg, #ffb347 0%, #ff7b54 100%);
+}
+
+.student-life-card-secondary .student-life-icon {
+    background: linear-gradient(135deg, #ff7b54 0%, #dc4b23 100%);
+}
+
+.student-life-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.45rem;
+    letter-spacing: -0.02em;
+}
+
+.student-life-card p {
+    color: var(--gray-600);
+    line-height: 1.7;
+}
+
+.student-life-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    margin-top: var(--spacing-2xl);
+}
+
+.student-life-actions .btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--primary-dark);
+    border: 1px solid rgba(40, 181, 160, 0.25);
+    box-shadow: 0 10px 24px rgba(31, 29, 27, 0.08);
+}
+
+.student-life-actions .btn-secondary:hover {
+    background: var(--white);
+    color: var(--secondary-dark);
+    border-color: rgba(255, 123, 84, 0.35);
+    box-shadow: 0 14px 28px rgba(31, 29, 27, 0.12);
+    transform: translateY(-4px);
 }
 
 /* ========== SCHOOL GALLERY SECTION ========== */
@@ -853,6 +932,14 @@ address {
 }
 
 @media (max-width: 767px) {
+    .student-life-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .student-life-card {
+        min-height: 200px;
+    }
+
     .gallery-grid {
         grid-template-columns: 1fr;
     }
@@ -863,6 +950,10 @@ address {
 }
 
 @media (min-width: 768px) and (max-width: 1100px) {
+    .student-life-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }

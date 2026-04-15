@@ -164,31 +164,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ========== Smooth Scroll for Anchor Links ==========
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    
+    function scrollToHash(hash, smooth) {
+        if (!hash || hash === '#') return false;
+
+        const targetElement = document.querySelector(hash);
+        if (!targetElement) return false;
+
+        // Account for sticky header and a small visual gap.
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = targetElement.offsetTop - headerHeight - 8;
+
+        window.scrollTo({
+            top: Math.max(targetPosition, 0),
+            behavior: smooth ? 'smooth' : 'auto'
+        });
+
+        return true;
+    }
+
+    const anchorLinks = document.querySelectorAll('a[href*="#"]');
+
     anchorLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            
-            // Skip if it's just "#"
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                e.preventDefault();
-                
-                // Account for fixed header height
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetElement.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+
+            // Handle both "#section" and "page.html#section" for current page.
+            const url = new URL(href, window.location.href);
+            const isSamePage =
+                url.origin === window.location.origin &&
+                url.pathname === window.location.pathname;
+
+            if (isSamePage && url.hash) {
+                if (scrollToHash(url.hash, true)) {
+                    e.preventDefault();
+                }
             }
         });
     });
+
+    // If page is opened with a hash (e.g., index.html#enquire), align position after load.
+    if (window.location.hash) {
+        window.setTimeout(function() {
+            scrollToHash(window.location.hash, false);
+        }, 60);
+    }
     
     // ========== Close Mobile Menu on Outside Click ==========
     document.addEventListener('click', function(e) {
