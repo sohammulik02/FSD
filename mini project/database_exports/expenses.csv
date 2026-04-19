@@ -1,0 +1,3 @@
+id,trip_id,amount,currency,base_currency,converted_amount,conversion_rate,category,date,description,created_at
+1,3,140,USD,INR,1.68,0.011976047904191617,hotel,2026-06-17,Metro,2026-04-19 15:19:32.429335
+2,4,140,USD,INR,1.68,0.011976047904191617,hotel,2026-06-17,Metro,2026-04-19 15:21:34.379655

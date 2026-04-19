@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Expense Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="aura"></div>
+  <header class="topbar">
+    <a href="#" class="brand">Travel Expense Manager</a>
+    <div class="top-actions">
+      <span id="apiNote" class="api-pill working">API checking...</span>
+      <button id="openLogin" class="btn ghost" type="button">Login</button>
+      <button id="openSignup" class="btn solid" type="button">Sign up</button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section id="landing" class="view active">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="kicker">Track Every Rupee Across Borders</p>
+          <h1>Smart travel budgeting with live currency conversion.</h1>
+          <p class="subtitle">
+            Plan trips, add expenses in any currency, and get instant INR-based summaries by day and category.
+            Built for students, teams, and frequent travelers.
+          </p>
+          <div class="hero-cta">
+            <button id="heroLogin" class="btn dark" type="button">Login</button>
+            <button id="heroSignup" class="btn light" type="button">Create account</button>
+          </div>
+        </div>
+        <div class="hero-cards" aria-hidden="true">
+          <article class="float-card">
+            <h3>Live Conversion</h3>
+            <p>USD, EUR, SGD, JPY and more to your base currency.</p>
+          </article>
+          <article class="float-card delay-1">
+            <h3>Trip Insights</h3>
+            <p>Totals, category split, and day-wise spending at a glance.</p>
+          </article>
+          <article class="float-card delay-2">
+            <h3>REST + DBMS</h3>
+            <p>Secure FastAPI backend with PostgreSQL schema design.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="view hidden">
+      <div class="panel profile">
+        <h2>Personal Information</h2>
+        <p class="subtle">You are logged in and ready to manage your travel expenses.</p>
+        <div class="profile-grid">
+          <article>
+            <h4>Name</h4>
+            <p id="profileName">-</p>
+          </article>
+          <article>
+            <h4>Email</h4>
+            <p id="profileEmail">-</p>
+          </article>
+          <article>
+            <h4>Status</h4>
+            <p id="profileStatus">Authenticated</p>
+          </article>
+        </div>
+      </div>
+
+      <section class="panel">
+        <h3>Create Trip</h3>
+        <form id="tripForm" class="form-grid cols-5">
+          <label>Title<input name="title" placeholder="Japan Tour" required /></label>
+          <label>Country<input name="destination_country" placeholder="Japan" required /></label>
+          <label>Start Date<input type="date" name="start_date" required /></label>
+          <label>End Date<input type="date" name="end_date" required /></label>
+          <label>Base Currency<input name="base_currency" value="INR" maxlength="3" required /></label>
+          <button type="submit" class="btn solid">Add Trip</button>
+        </form>
+        <div id="tripList" class="table-wrap"></div>
+      </section>
+
+      <section class="panel">
+        <h3>Add Expense</h3>
+        <form id="expenseForm" class="form-grid cols-6">
+          <label>Trip
+            <select name="trip_id" required>
+              <option value="">Select a trip</option>
+            </select>
+          </label>
+          <label>Amount<input type="number" step="0.01" name="amount" placeholder="1200" required /></label>
+          <label>Currency
+            <select name="currency" required>
+              <option value="USD">USD - US Dollar</option>
+              <option value="INR">INR - Indian Rupee</option>
+              <option value="JPY">JPY - Japanese Yen</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="GBP">GBP - British Pound</option>
+              <option value="SGD">SGD - Singapore Dollar</option>
+              <option value="AED">AED - UAE Dirham</option>
+              <option value="AUD">AUD - Australian Dollar</option>
+              <option value="CAD">CAD - Canadian Dollar</option>
+              <option value="THB">THB - Thai Baht</option>
+            </select>
+          </label>
+          <label>Category
+            <select name="category" required>
+              <option value="food">food</option>
+              <option value="travel">travel</option>
+              <option value="hotel">hotel</option>
+              <option value="shopping">shopping</option>
+              <option value="local_transport">local_transport</option>
+              <option value="entertainment">entertainment</option>
+              <option value="misc">misc</option>
+            </select>
+          </label>
+          <label>Day
+            <select name="day_label" required>
+              <option value="Day 1">Day 1</option>
+            </select>
+          </label>
+          <label>Description<input name="description" placeholder="Metro + dinner" /></label>
+          <button type="submit" class="btn solid">Add Expense</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h3>Trip Ledger</h3>
+        <form id="ledgerForm" class="summary-form">
+          <label>Trip
+            <select name="trip_id" required>
+              <option value="">Select a trip</option>
+            </select>
+          </label>
+          <button type="submit" class="btn dark">Load Ledger</button>
+        </form>
+        <div class="ledger-summary">
+          <div class="ledger-stat">
+            <span>Total spent</span>
+            <strong id="ledgerTotal">0.00 INR</strong>
+          </div>
+          <div class="ledger-stat">
+            <span>Trip base currency</span>
+            <strong id="ledgerCurrency">INR</strong>
+          </div>
+        </div>
+        <div id="ledgerTable" class="table-wrap ledger-table-wrap"></div>
+      </section>
+
+      <p id="status" class="status-line"></p>
+    </section>
+  </main>
+
+  <dialog id="authModal">
+    <div class="modal-head">
+      <h3 id="authTitle">Login</h3>
+      <button id="closeModal" class="icon-btn" type="button" aria-label="Close">x</button>
+    </div>
+
+    <form id="loginForm" class="auth-form">
+      <label>Email<input type="email" name="email" placeholder="you@example.com" required /></label>
+      <label>Password<input type="password" name="password" placeholder="Your password" required /></label>
+      <button type="submit" class="btn solid">Login</button>
+      <p class="switch-line">New here? <button id="switchToSignup" type="button" class="inline-btn">Create account</button></p>
+    </form>
+
+    <form id="registerForm" class="auth-form hidden">
+      <label>Full Name<input name="full_name" placeholder="Your full name" required /></label>
+      <label>Email<input type="email" name="email" placeholder="you@example.com" required /></label>
+      <label>Password<input type="password" name="password" placeholder="Min 8 characters" minlength="8" required /></label>
+      <button type="submit" class="btn solid">Sign up</button>
+      <p class="switch-line">Already have an account? <button id="switchToLogin" type="button" class="inline-btn">Login</button></p>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

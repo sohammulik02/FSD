@@ -1,0 +1,5 @@
+id,user_id,title,destination_country,start_date,end_date,base_currency,created_at
+1,5,Japan Tour,Japan,2026-06-16,2026-06-26,INR,2026-04-19 15:18:14.030678
+2,5,Japan Tour,Japan,2026-06-16,2026-06-26,INR,2026-04-19 15:18:42.453259
+3,5,Japan Tour 2,Japan,2026-06-16,2026-06-26,INR,2026-04-19 15:19:30.425333
+4,5,Japan Tour 3,Japan,2026-06-16,2026-06-26,INR,2026-04-19 15:21:34.357766
