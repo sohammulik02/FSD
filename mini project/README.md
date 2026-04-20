@@ -32,7 +32,7 @@ pip install -r requirements.txt
 Start:
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn backend.main:app --reload
 ```
 
 Docs:
