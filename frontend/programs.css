@@ -764,3 +764,124 @@
         width: 100%;
     }
 }
+
+
+/* Programs Pages Dark Theme */
+[data-theme='dark'] .program-page {
+    background:
+        radial-gradient(circle at top left, rgba(40, 181, 160, 0.14), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 123, 84, 0.12), transparent 26%),
+        linear-gradient(180deg, #0f1a22 0%, #111f28 56%, #0f1b22 100%);
+    color: #d5e0e7;
+}
+
+[data-theme='dark'] .program-page .header {
+    background: linear-gradient(180deg, rgba(16, 27, 35, 0.95) 0%, rgba(13, 23, 30, 0.9) 100%);
+    border-bottom-color: rgba(64, 212, 186, 0.2);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='dark'] .program-page .logo {
+    background: rgba(64, 212, 186, 0.14);
+    border-color: rgba(64, 212, 186, 0.24);
+    color: #b7efe5;
+}
+
+[data-theme='dark'] .program-page .nav-link,
+[data-theme='dark'] .program-page .nav-link-mobile,
+[data-theme='dark'] .program-hero-copy p,
+[data-theme='dark'] .stage-hero-copy p,
+[data-theme='dark'] .programs-description,
+[data-theme='dark'] .stage-summary,
+[data-theme='dark'] .stage-body p,
+[data-theme='dark'] .program-card p,
+[data-theme='dark'] .stage-details-box p,
+[data-theme='dark'] .stage-details-box li {
+    color: #c0ced6;
+}
+
+[data-theme='dark'] .program-page .nav-link:hover,
+[data-theme='dark'] .program-page .nav-link-mobile:hover {
+    color: #40d4ba;
+}
+
+[data-theme='dark'] .program-page .theme-toggle {
+    border-color: rgba(64, 212, 186, 0.3);
+    color: #d5e0e7;
+}
+
+[data-theme='dark'] .program-page .menu-toggle {
+    border-color: rgba(64, 212, 186, 0.25);
+    color: #d5e0e7;
+}
+
+[data-theme='dark'] .program-page .nav-link-mobile {
+    background: linear-gradient(180deg, rgba(21, 33, 41, 0.96) 0%, rgba(17, 28, 36, 0.98) 100%);
+    border-color: rgba(64, 212, 186, 0.2);
+}
+
+[data-theme='dark'] .program-hero {
+    background:
+        radial-gradient(circle at top left, rgba(40, 181, 160, 0.22), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(255, 123, 84, 0.16), transparent 34%),
+        linear-gradient(135deg, #10202a 0%, #11232d 62%, #12242d 100%);
+}
+
+[data-theme='dark'] .program-kicker,
+[data-theme='dark'] .programs-kicker,
+[data-theme='dark'] .stage-kicker {
+    background: rgba(64, 212, 186, 0.2);
+    color: #a7f1e4;
+}
+
+[data-theme='dark'] .program-hero h1 span,
+[data-theme='dark'] .stage-hero h1 span,
+[data-theme='dark'] .program-card-link,
+[data-theme='dark'] .stage-card-link {
+    color: #ff9978;
+}
+
+[data-theme='dark'] .program-hero-pills span,
+[data-theme='dark'] .stage-meta span,
+[data-theme='dark'] .program-flow-item,
+[data-theme='dark'] .stage-stat,
+[data-theme='dark'] .stage-details-box,
+[data-theme='dark'] .program-card,
+[data-theme='dark'] .stage-card,
+[data-theme='dark'] .stage-panel,
+[data-theme='dark'] .stage-details-box,
+[data-theme='dark'] .stage-info-item {
+    background: rgba(18, 31, 39, 0.95);
+    border-color: rgba(64, 212, 186, 0.2);
+    color: #d5e0e7;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+}
+
+[data-theme='dark'] .program-hero-panel {
+    background:
+        linear-gradient(160deg, rgba(40, 181, 160, 0.18) 0%, rgba(255, 123, 84, 0.14) 100%),
+        rgba(14, 25, 32, 0.92);
+    border-color: rgba(64, 212, 186, 0.2);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme='dark'] .program-flow-item strong,
+[data-theme='dark'] .stage-stat strong,
+[data-theme='dark'] .stage-panel h2,
+[data-theme='dark'] .program-hero-panel h2,
+[data-theme='dark'] .program-card li,
+[data-theme='dark'] .stage-list li,
+[data-theme='dark'] .program-card h3,
+[data-theme='dark'] .stage-card h3 {
+    color: #ecf3f8;
+}
+
+[data-theme='dark'] .program-flow-item small {
+    color: #9cb0bc;
+}
+
+[data-theme='dark'] .program-btn-secondary {
+    background: rgba(18, 31, 39, 0.95);
+    color: #d5e0e7;
+    border-color: rgba(64, 212, 186, 0.28);
+}

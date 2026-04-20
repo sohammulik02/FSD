@@ -4,6 +4,59 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // ========== Theme Toggle (Light / Dark) ==========
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = themeToggle ? themeToggle.querySelector('.theme-toggle-label') : null;
+    const storageKey = 'ktbs-theme';
+
+    function getPreferredTheme() {
+        const savedTheme = window.localStorage.getItem(storageKey);
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+            return savedTheme;
+        }
+
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+
+        if (!themeToggle || !themeLabel) return;
+
+        const isDark = theme === 'dark';
+        themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        themeLabel.textContent = isDark ? 'Light' : 'Dark';
+    }
+
+    applyTheme(getPreferredTheme());
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            window.localStorage.setItem(storageKey, nextTheme);
+            applyTheme(nextTheme);
+        });
+    }
+
+    // Keep multiple open tabs in sync when theme changes in another tab.
+    window.addEventListener('storage', function(event) {
+        if (event.key !== storageKey) return;
+
+        const nextTheme = event.newValue === 'dark' ? 'dark' : 'light';
+        applyTheme(nextTheme);
+    });
+
+    // Follow OS theme changes only when user has not explicitly selected a mode.
+    const mediaTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaTheme.addEventListener('change', function(event) {
+        const explicitTheme = window.localStorage.getItem(storageKey);
+        if (explicitTheme === 'light' || explicitTheme === 'dark') return;
+
+        applyTheme(event.matches ? 'dark' : 'light');
+    });
+
     // ========== FAQ Modal Toggle ==========
     const faqModal = document.getElementById('faqModal');
     const faqToggle = document.getElementById('faqToggle');

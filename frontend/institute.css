@@ -66,3 +66,17 @@
         aspect-ratio: 4 / 4.4;
     }
 }
+
+[data-theme='dark'] .institute-page .member-photo-frame {
+    background: linear-gradient(135deg, rgba(40, 181, 160, 0.22) 0%, rgba(255, 123, 84, 0.16) 100%);
+    border-color: rgba(64, 212, 186, 0.22);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .institute-page .member-photo {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .institute-page .member-role {
+    color: #95ece0;
+}
